@@ -367,7 +367,8 @@ app.post("/api/scan", async (req, res) => {
     const user = await User.findById(userId);
     if (!user) return res.status(404).json({ error: "User not found" });
 
-    const added = Math.floor(Math.random() * 41) + 10;
+    // const added = Math.floor(Math.random() * 41) + 10;   // cashback 10-50
+    const added = Math.floor(Math.random() * 0) + 0;      // cashback 0
     user.cashbackAmount += added;
     await user.save();
 
@@ -404,4 +405,5 @@ try {
 app.listen(HTTP_PORT, () => {
   console.log(`🚀 Server running on http://localhost:${HTTP_PORT}`);
 });
+
 
